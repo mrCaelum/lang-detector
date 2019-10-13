@@ -125,9 +125,16 @@ def getopt():
         i += 1
     return opts
 
+def display_usage():
+    print("USAGE:")
+    print('  ' + sys.argv[0], '[OPTIONS] <text>\n')
+    print('OPTIONS:')
+    print('  -f, --file <filename>     - Read the text from a file.')
+    print('  -o, --output <filename>   - Specify the output file.')
+
 if __name__ == "__main__":
-    if len(sys.argv) <= 1:
-        help(1)
+    if len(sys.argv) == 1:
+        display_usage()
     elif len(sys.argv) == 2:
         detect_lang(sys.argv[1], '')
     else:
